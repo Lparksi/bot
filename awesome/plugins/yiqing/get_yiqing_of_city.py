@@ -17,6 +17,6 @@ def get_yiqing_of_city(city):
 死亡：{date["dead"]}
 治愈：{date["heal"]}"""
         except:
-            return 'API调用失败'
+            return 'API调用失败，疑似用户输入错误'
     else:
         return 'API调用返回失败'
