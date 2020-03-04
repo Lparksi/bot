@@ -1,7 +1,7 @@
 from nonebot import on_command, CommandSession
 from .get_yiqing_of_city import get_yiqing_of_city
 
-@on_command('yiqing',aliases=('疫情','查疫情'))
+@on_command('yiqing',aliases=('疫情','查疫情'),only_to_me=False)
 async def yiqing(session: CommandSession):
     city = session.get('city',prompt='你想查询哪个城市的疫情？（仅市级，不带市）')
     yiqing_report = get_yiqing_of_city(city)
