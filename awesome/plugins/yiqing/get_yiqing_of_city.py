@@ -1,5 +1,6 @@
 import requests
 
+
 def get_yiqing_of_city(city):
     url = "https://myapi.ihogu.com/public/?s=Whfy.city"
     payload = {

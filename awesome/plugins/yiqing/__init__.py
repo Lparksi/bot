@@ -1,5 +1,7 @@
-from nonebot import on_command, CommandSession
+from nonebot import CommandSession, on_command
+
 from .get_yiqing_of_city import get_yiqing_of_city
+
 
 @on_command('yiqing',aliases=('疫情','查疫情'),only_to_me=False)
 async def yiqing(session: CommandSession):
