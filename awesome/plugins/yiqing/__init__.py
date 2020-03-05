@@ -1,4 +1,4 @@
-from nonebot import CommandSession, session
+from nonebot import CommandSession, on_command
 
 from .get_yiqing_of_city import get_yiqing_of_city
 
