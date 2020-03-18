@@ -5,7 +5,6 @@ async def get_yiyan():
         async with session.get(url="https://v1.jinrishici.com/all.json") as resp:
             ret = await resp.json()
             try:
-                print(f"{ret['content']}-{ret['author']}")
                 return f"{ret['content']}-{ret['author']}"
             except:
                 return "Erroe!"
