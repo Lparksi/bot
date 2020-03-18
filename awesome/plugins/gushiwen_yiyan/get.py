@@ -14,5 +14,5 @@ import aiohttp
 async def get_wenyan():
     async with aiohttp.ClientSession() as session:
         async with session.get("https://v1.jinrishici.com/all") as resp:
-            j = resp.json()
-            return await f'{j["content"]}\n---{j["author"]}'
+            j = await resp.json()
+            return f'{j["content"]}\n---{j["author"]}'
