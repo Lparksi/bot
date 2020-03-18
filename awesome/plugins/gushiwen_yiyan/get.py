@@ -15,7 +15,4 @@ async def get_wenyan():
     async with aiohttp.ClientSession() as session:
         async with session.get("https://v1.jinrishici.com/all") as resp:
             j = resp.json()
-            try:
-                return await f'{j["content"]}\n---{j["author"]}'
-            except:
-                return "Error"
+            return await f'{j["content"]}\n---{j["author"]}'
