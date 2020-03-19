@@ -6,7 +6,7 @@ from .get_yiqing_of_city import get_yiqing_of_city
 @on_command('yiqing',aliases=("疫情","查疫情","疫情详情"),)
 async def yiqing(session: CommandSession):
     city = session.get('city',prompt="你要查询哪个城市的")
-    yiqing_report = get_yiqing_of_city(city)
+    yiqing_report = await get_yiqing_of_city(city)
     await session.send(yiqing_report)
 
 @yiqing.args_parser
