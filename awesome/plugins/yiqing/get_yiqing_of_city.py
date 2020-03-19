@@ -33,9 +33,9 @@ async def get_yiqing_of_city(city):
             try:
                 date = ret['data']['items'][0]
                 return f"""{date["create_time"],}{date["city"]}的疫情详情：
-                 诊：{date["confirm"]}
-                 疑似：{date["suspect"]}
-                 死亡：{date["dead"]}
-                 治愈：{date["heal"]}"""
+确诊：{date["confirm"]}
+疑似：{date["suspect"]}
+死亡：{date["dead"]}
+治愈：{date["heal"]}"""
             except:
                 return "Error!"
