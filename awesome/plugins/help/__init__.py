@@ -10,5 +10,5 @@ async def help(session: CommandSession):
     一言 | 一言，每日一言
     文言一言 | 文言文，古诗词，古诗文，古诗词文言，古诗文言
     复读 | echo
-    开源项目地址：https://gitee.com/parksi/bot
-    Bot使用帮助：https://gitee.com/parksi/bot/blob/master/README.md""")
+    开源项目地址：http://t.cn/A67B9Hq6
+    Bot使用帮助：http://t.cn/A67B9nmf""")
