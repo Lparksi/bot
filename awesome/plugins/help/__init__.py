@@ -10,5 +10,8 @@ async def help(session: CommandSession):
     一言 | 一言，每日一言
     文言一言 | 文言文，古诗词，古诗文，古诗词文言，古诗文言
     复读 | echo
-    开源项目地址：http://t.cn/A67B9Hq6
-    Bot使用帮助：http://t.cn/A67B9nmf""")
+    开源项目地址：http://t.cn/A6ZMoP1b
+    Bot使用帮助：http://t.cn/A6ZMoZGS
+    对应码云链接：
+    http://t.cn/A6Zx44Vo
+    http://t.cn/A6Zx4cab""")
