@@ -14,4 +14,5 @@ async def help(session: CommandSession):
     Bot使用帮助：http://t.cn/A6ZMoZGS
     对应码云链接：
     http://t.cn/A6Zx44Vo
-    http://t.cn/A6Zx4cab""")
+    http://t.cn/A6Zx4cab
+    欢迎入群交流：866912510""")
