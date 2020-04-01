@@ -1,6 +1,6 @@
 from nonebot import on_command,CommandSession
-from .get_bilibili_video import get_video_info,find_bv
-
+from .get_bilibili_video import *
+from .get_bilibili_liveroom_info import *
 @on_command("Bilibili_Video",aliases=("B站视频","BV","bv"),only_to_me=False)
 async def Bilibili_Video(session: CommandSession):
     Video_id = session.get("BV", prompt="查询哪个视频？")
@@ -21,3 +21,5 @@ async def _(session: CommandSession):
     if not str_arg:
         session.pause('视频号不能为空，请重新输入')
     session.state[session.current_key] = str_arg
+
+@on_command("B_live",aliases=("直播","B"))

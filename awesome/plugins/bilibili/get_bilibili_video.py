@@ -19,7 +19,11 @@ Bvid:{BV}
 """,f"""视频链接：https://www.bilibili.com/video/BV{BV}/
 发布者主页：https://space.bilibili.com/{mid}/"""
     except :
-        return "请求错误！"
+        return ["请求错误！"]
 def find_bv(url):
-    bv = url.split("/")[-1][2:]
-    return bv
+    if url[-1] != '/':
+        bv = url.split("/")[-1][2:]
+        return bv
+    else:
+        bv = url.split("/")[-2][2:]
+        return bv
