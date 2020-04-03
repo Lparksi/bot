@@ -3,6 +3,8 @@ from SQL.func.AddData import Add_Data
 from SQL.func.DelData import Del
 from SQL.func.Updata_Data import Updata_Data
 from SQL.func.Authentication import Authentication_Root, Authentication_Administrator
+from SQL.func.Select import Select
+
 app = Flask(__name__)
 
 @app.route('/',methods=["POST"])
@@ -57,4 +59,20 @@ def updata_Data():
     else:
         return "Token Error", 0
 
+@app.route("/select",methods=["POST"])
+def select():
+    if request["token"] == "parksi2020":
+        data = Select(qq=qq)
+        ret = {
+            "id": data[0],
+            "qq": data[1],
+            "nickname": data[2],
+            "sex": data[3],
+            "age": data[4],
+            'root': data[5],
+            "administrator" : data[6]
+                }
+        return ret, 200
+    else:
+        return "Token Error", 0
 app.run(port=2666)
