@@ -21,5 +21,3 @@ async def _(session: CommandSession):
     if not str_arg:
         session.pause('视频号不能为空，请重新输入')
     session.state[session.current_key] = str_arg
-
-@on_command("B_live",aliases=("直播","B"))
