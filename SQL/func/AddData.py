@@ -1,7 +1,6 @@
-import json
+from .CONFIG import CONFIG
 import pymysql
 
-CONFIG = json.loads(open("config.json").read())
 HOST = CONFIG["host"]
 DATABASH = CONFIG["DataBash"]
 USER = CONFIG["user"]
