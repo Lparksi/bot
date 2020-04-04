@@ -1,20 +1,16 @@
-import requests
+from ..tools.func.AddData import Add_Data
 from nonebot import on_command, CommandSession
 @on_command("load",only_to_me=True)
 async def load(session: CommandSession):
     group_id = session.get('group_id')
     group_list =await session.bot.get_group_member_list(group_id=group_id)
     for x in group_list:
-        url = "http://127.0.0.1:2666/AddData"
-        data = {
-            "token":'parksi2020',
-            "qq":x["user_id"],
-            "nickname":x["nickname"],
-            "sex":x["sex"],
-            "age":x["age"],
-        }
-        r = requests.post(url,json=data)
-        # await session.send("ok")
+        user_id = x["user_id"]
+        nickname = x["nickname"]
+        sex = x["sex"]
+        age = x["age"]
+        Add_Data(qq=user_id,nickname=nickname,sex=sex,age=age)
+
 @load.args_parser
 async def _(session: CommandSession):
     stripped_arg = session.current_arg_text.strip()
