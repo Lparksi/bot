@@ -1,12 +1,5 @@
-import requests
+from awesome.plugins.tools.func.AUTH import Add_root
+from awesome.plugins.tools.func.Select import Select
 
-url = "http://127.0.0.1:2666/AddData"
-data = {
-    "token" : "parksi2020",
-    "qq" : 123456,
-    "nickname" : "Parksi",
-    "sex" : "男",
-    "age" : 14,
-}
-r = requests.post(url=url,json=data)
-print(r.text)
+Add_root(int(2726043636))
+print(Select(2726043636))
