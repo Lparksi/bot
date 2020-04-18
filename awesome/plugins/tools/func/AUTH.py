@@ -1,4 +1,4 @@
-from SQL.func.CONFIG import CONFIG
+from awesome.plugins.tools.func.CONFIG import CONFIG
 import pymysql
 
 HOST = CONFIG["host"]

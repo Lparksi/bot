@@ -1,6 +1,6 @@
 from nonebot import on_notice, NoticeSession
 
-GROPUS = [866912510,1060028351,672076603]
+GROPUS = [866912510, 1060028351, 672076603]
 #欢迎
 @on_notice('group_increase')
 async def _(session: NoticeSession):
