@@ -18,6 +18,7 @@ http://t.cn/A6ZMoZGS
 对应码云链接：
 http://t.cn/A6Zx44Vo
 http://t.cn/A6Zx4cab
+作者博客：https://parksi.xyz
 欢迎入群交流：
 866912510
 最新功能：bilibili视频简介""")
