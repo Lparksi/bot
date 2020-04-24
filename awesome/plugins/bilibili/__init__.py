@@ -1,7 +1,8 @@
-from nonebot import on_command,CommandSession
+from nonebot import on_command, CommandSession
 from .get_bilibili_video import *
-from .get_bilibili_liveroom_info import *
-@on_command("Bilibili_Video",aliases=("B站视频","BV","bv"),only_to_me=False)
+
+
+@on_command("Bilibili_Video", aliases=("B站视频", "BV", "bv"), only_to_me=False)
 async def Bilibili_Video(session: CommandSession):
     Video_id = session.get("BV", prompt="查询哪个视频？")
     if len(Video_id) > 10:
@@ -11,6 +12,8 @@ async def Bilibili_Video(session: CommandSession):
     ret = get_video_info(bv)
     for x in ret:
         await session.send(x)
+
+
 @Bilibili_Video.args_parser
 async def _(session: CommandSession):
     str_arg = session.current_arg_text.strip()
