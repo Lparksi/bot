@@ -1,6 +1,7 @@
 from nonebot import on_command, CommandSession
 
-@on_command("help",only_to_me=False)
+
+@on_command("help", only_to_me=True)
 async def help(session: CommandSession):
     await session.send("""HELP:
 目前插件:
