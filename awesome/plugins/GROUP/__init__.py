@@ -1,7 +1,9 @@
 from nonebot import on_notice, NoticeSession
 
 GROPUS = [866912510, 1060028351, 672076603]
-#欢迎
+
+
+# 欢迎
 @on_notice('group_increase')
 async def _(session: NoticeSession):
     if session.event.group_id in GROPUS:
@@ -9,7 +11,9 @@ async def _(session: NoticeSession):
         await session.send(f"[CQ:at,qq={user_id}]:\n欢迎入群~,输入'help'获取机器人使用说明!")
     else:
         pass
-#退出
+
+
+# 退出
 @on_notice('group_decrease')
 async def _(session: NoticeSession):
     if session.event.group_id in GROPUS:
@@ -22,17 +26,19 @@ async def _(session: NoticeSession):
             user_id = session.event.user_id
             operator_id = session.event.operator_id
             await session.send(f"""---成员被踢---
-请遵守本群群规，禁止涉及黄色、政治。引站等相关内容
+请遵守本群群规，禁止涉及黄色、政治。引战等相关内容
 被踢者:[CQ:at,qq={user_id}]
 操作者:[CQ:at,qq={operator_id}]""")
         elif session.event.sub_type == 'kick_me':
             group_id = session.event.group_id
-            await session.bot.send_private_msg(user_id=2726043636,message=f"登入账号已被提出,群聊{group_id}")
+            await session.bot.send_private_msg(user_id=2726043636, message=f"登入账号已被提出,群聊{group_id}")
         else:
             pass
     else:
         pass
-#禁言
+
+
+# 禁言
 @on_notice('group_ban')
 async def _(session: NoticeSession):
     if session.event.group_id in GROPUS:
@@ -44,7 +50,8 @@ async def _(session: NoticeSession):
     else:
         pass
 
-#管理员变动
+
+# 管理员变动
 @on_notice("group_admin")
 async def _(session: NoticeSession):
     if session.event.group_id in GROPUS:
