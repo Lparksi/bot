@@ -1,7 +1,7 @@
 from nonebot import on_command, CommandSession
 
 
-@on_command('ads', aliases=("友链", "广告"))
+@on_command("ads", aliases=("友链", "换友链"))
 async def ads(session: CommandSession):
     await session.send("""https://parksi.xyz换友链
 已收录的友链：
@@ -11,4 +11,5 @@ https://saky.site/
 https://linghan.gearhostpreview.com/
 https://kzero.vip/
 https://qqfloatingice.github.io/
-https://sosilent.top/""")
+https://sosilent.top/
+https://alastor.top/""")
