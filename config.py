@@ -9,3 +9,6 @@ SUPERUSERS = {2726043636}
 COMMAND_START = {'', '/', '!', '／', '！','.'}
 SESSION_EXPIRE_TIMEOUT = timedelta(minutes=2)
 SESSION_RUN_TIMEOUT = timedelta(seconds=10)
+
+
+QUN_id_list = {866912510}
