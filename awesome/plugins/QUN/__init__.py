@@ -16,12 +16,23 @@ async def _(session: NoticeSession):
         await session.send(f"{session.event.user_id}离开了我们!")
 
 
-# 管理员 增加/减少
-@on_notice("group_admin")
+# todo: 管理员 增加/减少
+# @on_notice("group_admin")
+# async def _(session: NoticeSession):
+#    if session.event.group_id in QUN_id_list:
+#        if session.event.sub_type == "set":
+#            await session.send(f"[CQ:at,qq={session.event.user_id}],恭喜成为管理员")
+#        else:
+#            nickname_dict = await session.bot.get_group_member_info(group_id=session.event.group_id, user_id=session.event.user_id)
+#            nickname = nickname_dict["card"]
+#            await session.send(f"非常遗憾，{nickname}失去了管理员资格")
+
+
+# 禁言
+@on_notice("group_ban")
 async def _(session: NoticeSession):
     if session.event.group_id in QUN_id_list:
-        if session.event.sub_type == "set":
-            await session.send(f"[CQ:at,qq={session.event.user_id}],恭喜成为管理员")
-
-
-# 
+        if session.event.sub_type == "ban":
+            await session.send(f"[CQ:at,qq={session.event.user_id}],你已被禁言\n操作者：[CQ:at,qq={session.event.operator_id}]")
+        else:
+            await session.send(f"[CQ:at,qq={session.event.user_id}],你已被取消禁言，请注意发言！")
