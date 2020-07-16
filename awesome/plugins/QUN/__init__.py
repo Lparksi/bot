@@ -6,7 +6,7 @@ from config import QUN_id_list
 @on_notice("group_increase")
 async def _(session: NoticeSession):
     if session.event.group_id in QUN_id_list:
-        await session.send(f"[CQ:at,qq={session.event.user_id}],欢迎入群！")
+        await session.send(f"[CQ:at,qq={session.event.user_id}],欢迎入群！[CQ:image,file=http://q.qlogo.cn/headimg_dl?dst_uin=2726043636&spec=100]")
 
 
 # 退群
