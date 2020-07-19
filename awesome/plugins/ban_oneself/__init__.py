@@ -17,7 +17,7 @@ def addBan(qqid, qunid, bantime, duration):
 
 
 def delBan(qqid):
-    Qcursor.execute(f"DELETE * FROM banlist WHERE QQID={qqid}")
+    Qcursor.execute(f"DELETE FROM banlist WHERE QQID={qqid}")
     Qsql.commit()
 
 
@@ -73,6 +73,7 @@ async def banoneself(session: CommandSession):
 async def unbanoneself(session: CommandSession):
     user = session.event.user_id
     if isInBan(user):
+        delBan(user)
         await session.bot.set_group_ban(group_id=selectBan(user)[2], user_id=user, duration=0)
         await session.send("已为你解除禁言状态")
     else:
