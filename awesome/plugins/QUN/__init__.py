@@ -1,5 +1,6 @@
 from nonebot import on_notice, NoticeSession
 from config import QUN_id_list
+from awesome.plugins.ban_oneself import delBan, BANLIST
 
 
 # 入群
@@ -33,7 +34,18 @@ async def _(session: NoticeSession):
 @on_notice("group_ban")
 async def _(session: NoticeSession):
     if session.event.group_id in QUN_id_list:
-        if session.event.sub_type == "ban":
-            await session.send(f"[CQ:at,qq={session.event.user_id}],你已被禁言\n操作者：[CQ:at,qq={session.event.operator_id}]")
-        else:
-            await session.send(f"[CQ:at,qq={session.event.user_id}],你已被取消禁言，请注意发言！")
+        # 是否是随机自闭插件造成 逆转返回
+        # if session.event.user_id in BANLIST:
+        #    status = False
+        # else:
+        #     status = True
+
+        # if session.event.sub_type == "ban" :
+        #     await session.send(f"[CQ:at,qq={session.event.user_id}],你已被禁言\n操作者：[CQ:at,qq={session.event.operator_id}]")
+        # elif session.event.sub_type == "lift_ban":
+        #     await session.send(f"[CQ:at,qq={session.event.user_id}],你已被取消禁言，请注意发言！")
+        #     delBan(qqid=session.event.user_id)
+        # else:
+        #     pass
+        if session.event.sub_type == "lift_ban":
+            delBan(qqid=session.event.user_id)

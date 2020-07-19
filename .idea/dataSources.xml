@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="qq_bot@cdb-d3y0e8ry.cd.tencentcdb.com" uuid="7ce9c5d8-6e98-454c-8941-cd7794523598">
-      <driver-ref>mysql.8</driver-ref>
+    <data-source source="LOCAL" name="ban.db" uuid="8defd109-0b08-4a11-8b2c-f81f03faa08d">
+      <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://cdb-d3y0e8ry.cd.tencentcdb.com:10050/qq_bot</jdbc-url>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/databash/ban.db</jdbc-url>
     </data-source>
   </component>
 </project>
