@@ -40,7 +40,7 @@ def upload(test):
 async def txai(session: CommandSession):
     if session.event.group_id in config.QUN_id_list:
         resp = upload(session.state["text"])
-        await session.send(resp)
+        await session.send("# "+resp)
     if session.event.group_id == 1060028351:
         resp = upload(session.state["text"])
         await session.send(resp)

@@ -28,10 +28,13 @@ def isInBan(qqid):
         return True
     else:
         return False
+
+
 def selectBan(qqid):
     Qcursor.execute(f"SELECT * FROM banlist WHERE QQID={qqid}")
     date = Qcursor.fetchone()
     return date
+
 
 @on_startup
 def _():
@@ -67,14 +70,15 @@ async def banoneself(session: CommandSession):
         addBan(qqid=session.event.user_id, qunid=session.event.group_id, bantime=bantime, duration=duration)
     else:
         await session.send("你是管理员，无法进行禁言操作！")
+    session.finish()
 
 
 @on_command("unbanoneself", aliases="我后悔了")
 async def unbanoneself(session: CommandSession):
     user = session.event.user_id
     if isInBan(user):
-        delBan(user)
         await session.bot.set_group_ban(group_id=selectBan(user)[2], user_id=user, duration=0)
         await session.send("已为你解除禁言状态")
+        delBan(user)
     else:
         await session.send("你的禁言不是由“随机自闭插件“引起的")
