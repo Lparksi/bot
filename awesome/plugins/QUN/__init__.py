@@ -1,6 +1,7 @@
 from nonebot import on_notice, NoticeSession
 from config import QUN_id_list
-from awesome.plugins.ban_oneself import delBan, BANLIST
+from awesome.plugins.ban_oneself import delBan, BANLIST, selectBan
+from time import sleep
 
 
 # 入群
@@ -31,6 +32,7 @@ async def _(session: NoticeSession):
 
 
 # 禁言
+# TODO:优化禁言时间
 @on_notice("group_ban")
 async def _(session: NoticeSession):
     if session.event.group_id in QUN_id_list:
@@ -48,4 +50,12 @@ async def _(session: NoticeSession):
         # else:
         #     pass
         if session.event.sub_type == "lift_ban":
-            delBan(qqid=session.event.user_id)
+            if len(selectBan(session.event.user_id)) != 0:
+                delBan(session.event.user_id)
+            else:
+                await session.send(f"[CQ:at,qq={session.event.user_id}]你已被解除禁言，请注意发言")
+        if session.event.sub_type == "ban":
+            if len(selectBan(session.event.user_id)) != 0:
+                pass
+            else:
+                await session.send(f"[CQ:at,qq={session.event.user_id}]，你已被禁言，请遵守群规.")

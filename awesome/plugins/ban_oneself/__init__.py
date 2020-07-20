@@ -32,13 +32,13 @@ def isInBan(qqid):
 
 def selectBan(qqid):
     Qcursor.execute(f"SELECT * FROM banlist WHERE QQID={qqid}")
-    date = Qcursor.fetchone()
+    date = Qcursor.fetchall()
     return date
 
 
 @on_startup
 def _():
-    print("正在加载ban列表")
+    print('-'*10 +"正在加载ban列表数据库" + '-'*10)
     sql = sqlite3.connect(database="./databash/ban.db")
     cursor = sql.cursor()
     cursor.execute("SELECT * FROM banlist")
@@ -53,6 +53,7 @@ def _():
         print(f"加载成功，共加载[{len(oldList)}]个数据\n已删除[{len(oldBan)}]个过期数据")
     except:
         print("加载失败，请留意错误信息")
+        print("-"*25)
     for item in oldList:
         if item not in oldBan:
             BANLIST.append(item)
@@ -77,7 +78,7 @@ async def banoneself(session: CommandSession):
 async def unbanoneself(session: CommandSession):
     user = session.event.user_id
     if isInBan(user):
-        await session.bot.set_group_ban(group_id=selectBan(user)[2], user_id=user, duration=0)
+        await session.bot.set_group_ban(group_id=selectBan(user)[0][2], user_id=user, duration=0)
         await session.send("已为你解除禁言状态")
         delBan(user)
     else:

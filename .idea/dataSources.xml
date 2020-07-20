@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/databash/ban.db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="roll.db" uuid="b3fe8109-f905-41bb-b46a-d58dd0d97fcb">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/databash/roll.db</jdbc-url>
+    </data-source>
   </component>
 </project>
