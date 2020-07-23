@@ -2,5 +2,6 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/awesome/plugins/ban_oneself/__init__.py" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/awesome/plugins/sleep/sql.py" dialect="GenericSQL" />
   </component>
 </project>
