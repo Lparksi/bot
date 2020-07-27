@@ -3,20 +3,20 @@ from nonebot import on_natural_language, NLPSession, IntentCommand
 from jieba import posseg
 
 
-@on_command("sushe",  aliases="宿舍", only_to_me=False)
+@on_command("sushe",  aliases=("宿舍", "寝室"), only_to_me=False)
 async def sushe(session: CommandSession):
     if session.event.group_id == 818278353:
         await session.send("""一般都是6人间，上下铺，桌子一侧排，有空调，另外租（租比较贵，就这两年，跟舍友商量好要不要租）。
 男生一般都是十里铺，也就是校外宿舍，当然还有三里屯之类的，就认准在十里铺就好)""")
 
 
-@on_command("sushe_img", aliases="宿舍照片", only_to_me=False)
+@on_command("sushe_img", aliases=("宿舍照片", "寝室照片"), only_to_me=False)
 async def suzheimg(session: CommandSession):
     if session.event.group_id == 818278353:
         await session.send("""[CQ:image,file=https://s1.ax1x.com/2020/07/27/aPVaff.jpg]""")
 
 
-@on_natural_language(keywords={"宿舍"}, only_to_me=False)
+@on_natural_language(keywords={"宿舍", "寝室"}, only_to_me=False)
 async def _(session: NLPSession):
     stripped_msg = session.msg_text.strip()
     words = posseg.lcut(stripped_msg)
