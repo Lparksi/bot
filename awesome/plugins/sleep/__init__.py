@@ -1,9 +1,9 @@
-from nonebot import on_command, CommandSession, on_startup
+from nonebot import on_command, CommandSession
 from config import QUN_id_list
 from awesome.plugins.sleep.sql import *
 import time
 import random
-
+from awesome.plugins.sleep.logsql import *
 
 SLEEPTEXT = ["晚安，祝你好梦",
              "晚安，明天早上见",
@@ -30,6 +30,9 @@ async def sleep(session: CommandSession):
                        qunid=session.event.group_id,
                        time=now)
             sleepers = selSleepers(qunid=session.event.group_id)
+            addSleepLogSleep(userid=session.event.user_id,
+                             data=time.ctime(),
+                             time=now)
             await session.send(f"你是今天第{sleepers}睡觉的小可爱\n{SLEEPTEXT[random.randint(0, len(SLEEPTEXT))-1]}")
         else:
             await session.send(f"{SLEEPEDTEXT[random.randint(0, len(SLEEPEDTEXT)-1)]}\n还不去睡觉？？？")
@@ -44,6 +47,9 @@ async def getup(session: CommandSession):
             if now - getSleepTime(session.event.user_id) > 2 *60 *60:
                 delSleeper(userid=session.event.user_id)
                 addGetup(userid=session.event.user_id, time=now)
+                addSleepLogGetup(userid=session.event.user_id,
+                                 time=now,
+                                 data=time.ctime())
                 await session.send(f"你是今天第{selGetups(session.event.group_id)}起床的小可爱\n{GETUPTEXT[random.randint(0, len(GETUPTEXT)-1)]}")
             else:
                 await session.send(f"失眠了吗，让本宝宝陪你（#+空格+文字 智能闲聊）\n起床请求未被受理！")
