@@ -12,7 +12,7 @@ HttpApiUser = HttpApi + '/send_private_msg'
 
 QunIdList = []
 UserIdList = [2726043636]
-RoomIdList = [936475, 97687, 21716679]
+RoomIdList = [936475, 97687]
 
 
 while True:
