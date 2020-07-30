@@ -19,11 +19,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/databash/sleep.db</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="status.db" uuid="648f48b7-b780-4c25-a1c4-1ff2dc468706">
+    <data-source source="LOCAL" name="status.db" uuid="d5b5d190-6876-4a4e-8e96-45c6467af19a">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/awesome/ext/BilibiliLive/status.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/ext/BilibiliLive/status.db</jdbc-url>
     </data-source>
   </component>
 </project>

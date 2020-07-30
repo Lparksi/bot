@@ -1,6 +1,7 @@
-import requests
 import time
-import awesome.ext.BilibiliLive.sql.sql as sql
+
+import requests
+import ext.BilibiliLive.sql as sql
 
 HttpApi = 'http://127.0.0.1:5700'
 FTqqApi = 'https://sc.ftqq.com/SCU106022T8552c245baf3a4c46f68203a62ac65a85f104e66058af.send'
@@ -12,7 +13,6 @@ HttpApiUser = HttpApi + '/send_private_msg'
 QunIdList = []
 UserIdList = [2726043636]
 RoomIdList = [936475, 97687]
-
 
 while True:
     for item in RoomIdList:
@@ -27,11 +27,11 @@ while True:
         LiveKeyimage = ret["data"]["room_info"]["keyframe"]
         # 图片版本 1
         # qqmsg = f"""---Bilibili 直播助手---
-# 当前主播：{LiveRoomAnchorName}\n[CQ:image,file={LiveRoomAnchorFace}]
-# 直播间：{item} -- {Livetitle}
-# 标签：{Livetags}
-# 关键帧：[CQ:image,file={Livecover}],[CQ:image,file={LiveKeyimage}]
-# """
+        # 当前主播：{LiveRoomAnchorName}\n[CQ:image,file={LiveRoomAnchorFace}]
+        # 直播间：{item} -- {Livetitle}
+        # 标签：{Livetags}
+        # 关键帧：[CQ:image,file={Livecover}],[CQ:image,file={LiveKeyimage}]
+        # """
         qqmsg = f"""---Bilibili 直播助手---
 当前主播：{LiveRoomAnchorName}
 直播间：{item} -- {Livetitle}
@@ -71,14 +71,14 @@ while True:
 
         if not sql.inList(item):
             sql.addRoom(roomid=item,
-                        status=Livestatus,
-                        time=time.time())
+                    status=Livestatus,
+                    time=time.time())
             if Livestatus == 1:
                 sendALL()
         if not (sql.selStatus(roomid=item) == Livestatus):
             sql.upRoom(roomid=item,
-                       status=Livestatus,
-                       time=time.time())
+                   status=Livestatus,
+                   time=time.time())
         if time.time() - sql.selTime(roomid=item) > (10 * 60):
             if Livestatus == 1:
                 print("时间超出10分钟，已批准发送")
