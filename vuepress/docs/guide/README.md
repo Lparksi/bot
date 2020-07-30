@@ -36,3 +36,5 @@
 ### Nonebot
 [Nonebot](https://nonebot.cqp.moe/) 基于 酷Q 的 Python 异步 QQ 机器人框架
 并不依赖于酷Q，依赖于酷Q的插件：CQHTTP
+## 前往仓库
+[前往仓库](../apps/)
