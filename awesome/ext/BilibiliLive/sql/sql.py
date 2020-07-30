@@ -1,7 +1,7 @@
 import sqlite3
 import time
 
-Sql = sqlite3.connect('./status.db')
+Sql = sqlite3.connect('../status.db')
 Cursor = Sql.cursor()
 
 

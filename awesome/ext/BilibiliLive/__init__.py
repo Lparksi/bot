@@ -1,7 +1,6 @@
 import requests
-import json
 import time
-import awesome.ext.BilibiliLive.sql as sql
+import awesome.ext.BilibiliLive.sql.sql as sql
 
 HttpApi = 'http://127.0.0.1:5700'
 FTqqApi = 'https://sc.ftqq.com/SCU106022T8552c245baf3a4c46f68203a62ac65a85f104e66058af.send'
